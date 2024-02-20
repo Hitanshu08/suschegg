@@ -4,9 +4,8 @@
 .icon-sidebar-container {
   display: flex;
   flex-direction: column;
-  width: 4rem;
   height: 100%;
-  padding: 0.5rem;
+  padding: 0.5rem 0;
   box-sizing: border-box;
   background-color: #0d0d0d;
 }
@@ -15,7 +14,54 @@
   flex-direction: column;
   width: 12rem;
   height: 100%;
-  padding: 0.5rem;
+  padding: 0.5rem 0.5rem 0.5rem 0;
   box-sizing: border-box;
-  background: #4f4f4f;
+  background: #0d0d0d;
+}
+.sidebar-icon-element {
+  color: #ffffff;
+  height: 3rem;
+  padding: 0.5rem 1rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+}
+.sidebar-icon-element:hover {
+  background: #242424;
+}
+.sidebar-icon-element svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+}
+.sidebar-value-element {
+  width: 0px;
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 1px;
+  overflow: hidden;
+}
+.active .sidebar-value-element {
+  margin-left: 0.5rem;
+  width: 100%;
+}
+.sidebar-expander {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 1rem;
+  cursor: pointer;
+}
+.arrow {
+  position: absolute;
+  color: white;
+  left: -0.15rem;
+}
+.arrow.reversed {
+  transform: scaleX(-1);
 }
