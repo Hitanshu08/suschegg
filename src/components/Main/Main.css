@@ -1,0 +1,35 @@
+.container {
+  background: #333333;
+  width: 100%;
+  color: #ffffff;
+  padding: 1rem;
+  box-sizing: border-box;
+  height: 100%;
+  overflow: auto;
+}
+.container::-webkit-scrollbar{
+  display: none;
+}
+.heading {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  box-sizing: border-box;
+  border: 1px solid #ffffff;
+  border-radius: 1rem;
+  background-color: #000000;
+  color: #ffffff;
+  cursor: pointer;
+}
+button:hover {
+  border: 1px solid #000000;
+  background-color: #ffffff;
+  color: #000000;
+  box-shadow: 0.25rem 0.25rem 0.25rem 0px;
+}

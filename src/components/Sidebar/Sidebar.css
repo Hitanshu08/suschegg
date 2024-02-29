@@ -1,5 +1,6 @@
 .sidebar-container {
   display: flex;
+  background: #333333;
 }
 .icon-sidebar-container {
   display: flex;
@@ -7,7 +8,12 @@
   height: 100%;
   padding: 0.5rem 0;
   box-sizing: border-box;
-  background-color: #0d0d0d;
+  background-color: #242424;
+  width: 3.5rem;
+  transition: all 1s ease-in-out;
+}
+.icon-sidebar-container.active{
+  width: 14rem;
 }
 .main-sidebar-container {
   display: flex;
@@ -16,12 +22,12 @@
   height: 100%;
   padding: 0.5rem 0.5rem 0.5rem 0;
   box-sizing: border-box;
-  background: #0d0d0d;
+  background: #242424;
 }
 .sidebar-icon-element {
   color: #ffffff;
   height: 3rem;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
   box-sizing: border-box;
   display: flex;
   justify-content: flex-start;

@@ -1,0 +1,98 @@
+.account-details-container {
+  padding: 1rem;
+  box-sizing: border-box;
+  border: 1px solid #ffffff;
+  border-radius: 0.75rem;
+  margin-bottom: 2rem;
+}
+.account-details-heading {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.account-details {
+  margin-bottom: 1rem;
+}
+
+.account-detail {
+  display: flex;
+  margin-bottom: 0.5rem;
+  box-sizing: border-box;
+  height: auto;
+  font-size: 1rem;
+}
+
+.account-detail-title {
+  margin: 0;
+  font-weight: 500;
+  margin-right: 0.5rem;
+}
+
+.account-detail-value {
+  margin: 0;
+  color: #ffffff90;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.topup-history-container {
+  padding: 1rem;
+  box-sizing: border-box;
+  border: 1px solid #ffffff;
+  border-radius: 0.75rem;
+}
+
+.topup-history-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.topup-table {
+  width: 100%;
+  background-color: #444444;
+  border-spacing: 1px;
+}
+
+.topup-table-head {
+  background-color: #0d0d0d;
+}
+.topup-table-head-value {
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+.topup-table-body-value{
+  padding: 0.5rem;
+  box-sizing: border-box;
+  text-align: center;
+}
+.topup-table-body-row:nth-child(odd){
+  background-color: #242424;
+}
+.topup-table-body-row:nth-child(even){
+  background-color: #333333;
+}
+
+.table-navigation-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+.navigation-button-container {
+  display: flex;
+  box-sizing: border-box;
+  gap: 1rem;
+}
+
+.topup-table-container {
+  margin-bottom: 1rem;
+}
+
+.page-no-value {
+  font-weight: 600;
+}

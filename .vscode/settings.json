@@ -1,0 +1,11 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "reactSnippets.settings.prettierEnabled": true,
+  "prettier.bracketSameLine": true,
+  "prettier.bracketSpacing": true,
+  "prettier.singleAttributePerLine": true,
+  "prettier.useEditorConfig": false,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}

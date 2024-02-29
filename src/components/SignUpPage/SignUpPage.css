@@ -19,10 +19,10 @@
     margin-right: 0.5rem;
     appearance: none;
     border-radius: 0.25rem;
-    border: 1px solid #0d0d0d;
+    border: 1px solid #242424;
 }
 .signup-check-input:checked{
-    background: #0d0d0d;
+    background: #242424;
     appearance: none;
 }
 .signup-check-input::after{

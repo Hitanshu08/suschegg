@@ -167,8 +167,8 @@
 .login-check-input:checked {
     background-image: none;
     background-position: 100% center;
-    background-color:#0d0d0d;
-    border-color: #0d0d0d;
+    background-color:#242424;
+    border-color: #242424;
 }
 .login-check-input:checked::after {
     transform: translateX(22px) translateY(12.5%);
@@ -183,18 +183,18 @@
 .sign-in-button{
     cursor: pointer;
     color: #fff;
-    box-shadow: 0 1px 2px 0 #0d0d0d;
+    box-shadow: 0 1px 2px 0 #242424;
     margin-bottom: 0.5rem;
     width: 100%;
     padding: 0.5rem 0.75rem;
     border-radius: 0.375rem;
     box-sizing: border-box;
-    background: #0d0d0d;
+    background: #242424;
     border: none;
 }
 .sign-in-button.disabled{
-    background: #0d0d0d70;
-    box-shadow: 0 1px 2px 0 #0d0d0d70;
+    background: #24242470;
+    box-shadow: 0 1px 2px 0 #24242470;
 }
 .sign-up-button span{
     font-weight: 500;
