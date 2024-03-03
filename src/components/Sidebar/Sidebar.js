@@ -1,11 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Sidebar.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export const Sidebar = () => {
+export const Sidebar = ({ user, setUser }) => {
   const [isSidebarExpanded, setIsSidebarExpanded] = useState(false);
-  let location = useNavigate();
+  let navigate = useNavigate();
+  const [isUserButtonActive, setIsUserButtonActive] = useState(false);
+
+  const logout = () => {
+    setUser({});
+    localStorage.removeItem("g.gpt4");
+  };
+
+  useEffect(() => {
+    if (!user.email && !user.userName) {
+
+      if (JSON.parse(localStorage.getItem("g.gpt4")).email) {
+        setUser(JSON.parse(localStorage.getItem("g.gpt4")));
+      } else {
+        console.log(JSON.parse(localStorage.getItem("g.gpt4")))
+        navigate("/login");
+      }
+    }
+  }, [user]);
 
   return (
     <div className="sidebar-container">
@@ -13,7 +31,7 @@ export const Sidebar = () => {
         className={`icon-sidebar-container ${isSidebarExpanded && "active"}`}>
         <div
           className="sidebar-icon-element"
-          onClick={() => location("/dashboard")}>
+          onClick={() => navigate("/dashboard")}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -30,7 +48,7 @@ export const Sidebar = () => {
         </div>
         <div
           className="sidebar-icon-element"
-          onClick={() => location("/account")}>
+          onClick={() => navigate("/account")}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -47,7 +65,7 @@ export const Sidebar = () => {
         </div>
         <div
           className="sidebar-icon-element"
-          onClick={() => location("/subscription")}>
+          onClick={() => navigate("/subscription")}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -60,7 +78,7 @@ export const Sidebar = () => {
         </div>
         <div
           className="sidebar-icon-element"
-          onClick={() => location("/store")}>
+          onClick={() => navigate("/store")}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -73,7 +91,7 @@ export const Sidebar = () => {
         </div>
         <div
           className="sidebar-icon-element"
-          onClick={() => location("/status")}>
+          onClick={() => navigate("/status")}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -90,7 +108,7 @@ export const Sidebar = () => {
         </div>
         <div
           className="sidebar-icon-element"
-          onClick={() => location("/paraphrase")}>
+          onClick={() => navigate("/paraphrase")}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -105,7 +123,77 @@ export const Sidebar = () => {
           </svg>
           <div className="sidebar-value-element">Paraphrase</div>
         </div>
-        
+        <div
+          className="sidebar-icon-element"
+          onClick={() => navigate("/gpt")}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-stars"
+            viewBox="0 0 16 16">
+            <path d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.73 1.73 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.73 1.73 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.73 1.73 0 0 0 3.407 2.31zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732z" />
+          </svg>
+          <div className="sidebar-value-element">GPT</div>
+        </div>
+        <div className="user-container">
+          <div
+            className="user-wrapper"
+            onClick={() => setIsUserButtonActive(!isUserButtonActive)}>
+            <div className="user-icon-container">
+              <img
+                src={user.icon}
+                className="user-icon"></img>
+            </div>
+            <div className="user-name">{user.userName}</div>
+            <div className="show-more">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon-md">
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M3 12C3 10.8954 3.89543 10 5 10C6.10457 10 7 10.8954 7 12C7 13.1046 6.10457 14 5 14C3.89543 14 3 13.1046 3 12ZM10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12ZM17 12C17 10.8954 17.8954 10 19 10C20.1046 10 21 10.8954 21 12C21 13.1046 20.1046 14 19 14C17.8954 14 17 13.1046 17 12Z"
+                  fill="currentColor"></path>
+              </svg>
+            </div>
+          </div>
+          {!isUserButtonActive && (
+            <div class="logout-items">
+              <div
+                class="logout-item-container"
+                onClick={logout}>
+                <div class="logout-item-icon">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon-md">
+                    <path
+                      d="M11 3H7C5.89543 3 5 3.89543 5 5V19C5 20.1046 5.89543 21 7 21H11"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"></path>
+                    <path
+                      d="M20 12H11M20 12L16 16M20 12L16 8"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"></path>
+                  </svg>
+                </div>
+                <div class="logout-value">Logout</div>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
       <div
         className="sidebar-expander"
@@ -115,7 +203,7 @@ export const Sidebar = () => {
           viewBox="0 0 13 96"
           width="13"
           height="96"
-          fill="#242424"
+          fill="#171717"
           class="IrLwCg">
           <path
             class="TjrBvg"

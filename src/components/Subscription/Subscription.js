@@ -24,7 +24,7 @@ export const Subscription = () => {
               <span className="currancy">{pass.currency} </span>
               {pass.value}
             </div>
-            <button className="buy-button">Buy Now</button>
+            <button className="buy-button button">Buy Now</button>
           </div>
         ))}
       </div>

@@ -1,7 +1,12 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
-import { LoginPage } from "../LoginPage/LoginPage";
-import { SignUpPage } from "../SignUpPage/SignUpPage";
+import React, { useEffect, useState } from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  useNavigate,
+} from "react-router-dom";
+import LoginPage from "../LoginPage/LoginPage";
+import SignUpPage from "../SignUpPage/SignUpPage";
 import { TermsConditionsPage } from "../TermsConditionsPage/TermsConditionsPage";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { Sidebar } from "../Sidebar/Sidebar";
@@ -11,21 +16,27 @@ import { Store } from "../Store/Store";
 import { Account } from "../Account/Account";
 import "./Main.css";
 import { Subscription } from "../Subscription/Subscription";
+import GPT from "../GPT/GPT";
 
-export const Main = () => {
+const Main = () => {
+  const [user, setUser] = useState({});
+
   return (
     <GoogleOAuthProvider clientId="14833948766-vgrlster9sc66ojospjqp5aa9cfh2l10.apps.googleusercontent.com">
       <Router>
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        <div
+          style={{ display: "flex", flexDirection: "column", height: "100%" , backgroundColor: '#212121'}}>
           <Routes>
             <Route
               path="/"
               element={
                 <>
-                  <Header />
-                  <div
-                    style={{ display: "flex", height: "calc(100vh - 3rem)" }}>
-                    <Sidebar />
+                  {/* <Header /> */}
+                  <div style={{ display: "flex", height: "100%" }}>
+                    <Sidebar
+                      user={user}
+                      setUser={setUser}
+                    />
                     <Dashboard />
                   </div>
                 </>
@@ -35,10 +46,12 @@ export const Main = () => {
               path="/dashboard"
               element={
                 <>
-                  <Header />
-                  <div
-                    style={{ display: "flex", height: "calc(100vh - 3rem)" }}>
-                    <Sidebar />
+                  {/* <Header /> */}
+                  <div style={{ display: "flex", height: "100%" }}>
+                    <Sidebar
+                      user={user}
+                      setUser={setUser}
+                    />
                     <Dashboard />
                   </div>
                 </>
@@ -48,11 +61,13 @@ export const Main = () => {
               path="/account"
               element={
                 <>
-                  <Header />
-                  <div
-                    style={{ display: "flex", height: "calc(100vh - 3rem)" }}>
-                    <Sidebar />
-                    <Account />
+                  {/* <Header /> */}
+                  <div style={{ display: "flex", height: "100%" }}>
+                    <Sidebar
+                      user={user}
+                      setUser={setUser}
+                    />
+                    <Account user={user} />
                   </div>
                 </>
               }
@@ -61,10 +76,12 @@ export const Main = () => {
               path="/paraphrase"
               element={
                 <>
-                  <Header />
-                  <div
-                    style={{ display: "flex", height: "calc(100vh - 3rem)" }}>
-                    <Sidebar />
+                  {/* <Header /> */}
+                  <div style={{ display: "flex", height: "100%" }}>
+                    <Sidebar
+                      user={user}
+                      setUser={setUser}
+                    />
                     <Dashboard />
                   </div>
                 </>
@@ -74,10 +91,12 @@ export const Main = () => {
               path="/store"
               element={
                 <>
-                  <Header />
-                  <div
-                    style={{ display: "flex", height: "calc(100vh - 3rem)" }}>
-                    <Sidebar />
+                  {/* <Header /> */}
+                  <div style={{ display: "flex", height: "100%" }}>
+                    <Sidebar
+                      user={user}
+                      setUser={setUser}
+                    />
                     <Store />
                   </div>
                 </>
@@ -87,10 +106,12 @@ export const Main = () => {
               path="/subscription"
               element={
                 <>
-                  <Header />
-                  <div
-                    style={{ display: "flex", height: "calc(100vh - 3rem)" }}>
-                    <Sidebar />
+                  {/* <Header /> */}
+                  <div style={{ display: "flex", height: "100%" }}>
+                    <Sidebar
+                      user={user}
+                      setUser={setUser}
+                    />
                     <Subscription />
                   </div>
                 </>
@@ -100,21 +121,41 @@ export const Main = () => {
               path="/status"
               element={
                 <>
-                  <Header />
-                  <div
-                    style={{ display: "flex", height: "calc(100vh - 3rem)" }}>
-                    <Sidebar />
+                  {/* <Header /> */}
+                  <div style={{ display: "flex", height: "100%" }}>
+                    <Sidebar
+                      user={user}
+                      setUser={setUser}
+                    />
                     <Dashboard />
                   </div>
                 </>
               }
             />
             <Route
-              path="/login"
-              element={<LoginPage />}
+              path="/gpt"
+              element={
+                <>
+                  {/* <Header /> */}
+                  <div style={{ display: "flex", height: "100%" }}>
+                    <Sidebar
+                      user={user}
+                      setUser={setUser}
+                    />
+                    <GPT
+                      setUser={setUser}
+                      user={user}
+                    />
+                  </div>
+                </>
+              }
             />
             <Route
-              path="/sign-up"
+              path="/login"
+              element={<LoginPage setUser={setUser} />}
+            />
+            <Route
+              path="/signup"
               element={<SignUpPage />}
             />
             <Route
@@ -127,3 +168,5 @@ export const Main = () => {
     </GoogleOAuthProvider>
   );
 };
+
+export default Main;

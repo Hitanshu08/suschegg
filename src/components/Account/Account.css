@@ -1,9 +1,13 @@
 .account-details-container {
-  padding: 1rem;
+  padding: 16px;
   box-sizing: border-box;
-  border: 1px solid #ffffff;
-  border-radius: 0.75rem;
-  margin-bottom: 2rem;
+  margin-bottom: 32px;
+  background-color: #ffffff10;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 2px solid #ffffff1a;
+  box-shadow: 0 0 16px #08071099;
+  border-radius: 12px;
 }
 .account-details-heading {
   font-size: 1.25rem;
@@ -21,6 +25,7 @@
   box-sizing: border-box;
   height: auto;
   font-size: 1rem;
+  align-items: center;
 }
 
 .account-detail-title {
@@ -34,13 +39,18 @@
   color: #ffffff90;
   text-overflow: ellipsis;
   overflow: hidden;
+  display: flex;
 }
 
 .topup-history-container {
-  padding: 1rem;
+  padding: 16px;
   box-sizing: border-box;
-  border: 1px solid #ffffff;
-  border-radius: 0.75rem;
+  background-color: #ffffff10;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 2px solid #ffffff1a;
+  box-shadow: 0 0 16px #08071099;
+  border-radius: 12px;
 }
 
 .topup-history-title {
@@ -53,10 +63,12 @@
   width: 100%;
   background-color: #444444;
   border-spacing: 1px;
+  -webkit-border-horizontal-spacing: 0px;
+  -moz-border-horizontal-spacing: 0px;
 }
 
 .topup-table-head {
-  background-color: #0d0d0d;
+  background-color: #171717;
 }
 .topup-table-head-value {
   padding: 0.5rem;
@@ -69,10 +81,10 @@
   text-align: center;
 }
 .topup-table-body-row:nth-child(odd){
-  background-color: #242424;
+  background-color: #212121;
 }
 .topup-table-body-row:nth-child(even){
-  background-color: #333333;
+  background-color: #2f2f2f;
 }
 
 .table-navigation-container {
@@ -95,4 +107,8 @@
 
 .page-no-value {
   font-weight: 600;
+}
+
+.button.reset-password-button{
+  width: auto;
 }

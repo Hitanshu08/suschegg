@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import "./Account.css";
 
-export const Account = () => {
+export const Account = ({ user }) => {
   const accountDetails = [
-    { title: "Email:", value: "namemine153@gmail.com" },
-    { title: "Registration Date:", value: "2/8/2024, 3:13:11 PM" },
+    { title: "User Name: ", value: user.userName },
+    { title: "Email: ", value: user.email },
+    { title: "User Icon: ", value: <img src={user.icon}></img> },
   ];
 
   const topupHistory = [
@@ -66,11 +67,15 @@ export const Account = () => {
               className="account-detail"
               key={index}>
               <p className="account-detail-title">{detail.title}</p>
-              <p className="account-detail-value">{detail.value}</p>
+              <div className="account-detail-value">{detail.value}</div>
             </div>
           ))}
         </div>
-        <button className="reset-password-button">Reset Password</button>
+        <div>
+          <button className="reset-password-button button">
+            Reset Password
+          </button>
+        </div>
       </div>
       <div className="topup-history-container">
         <div className="topup-history-title">Top-Up History</div>
@@ -123,12 +128,12 @@ export const Account = () => {
           </div>
           <div className="navigation-button-container">
             <button
-              className="navigation-button"
+              className="navigation-button button"
               onClick={() => navTableBackword()}>
               Previous
             </button>
             <button
-              className="navigation-button"
+              className="navigation-button button"
               onClick={() => navTableForword()}>
               Next
             </button>
