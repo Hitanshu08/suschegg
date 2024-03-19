@@ -17,6 +17,7 @@ import { Account } from "../Account/Account";
 import "./Main.css";
 import { Subscription } from "../Subscription/Subscription";
 import GPT from "../GPT/GPT";
+import Paste from "../Paste/Paste";
 
 const Main = () => {
   const [user, setUser] = useState({});
@@ -25,7 +26,12 @@ const Main = () => {
     <GoogleOAuthProvider clientId="14833948766-vgrlster9sc66ojospjqp5aa9cfh2l10.apps.googleusercontent.com">
       <Router>
         <div
-          style={{ display: "flex", flexDirection: "column", height: "100%" , backgroundColor: '#212121'}}>
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            height: "100%",
+            backgroundColor: "#212121",
+          }}>
           <Routes>
             <Route
               path="/"
@@ -162,6 +168,10 @@ const Main = () => {
               path="/terms-and-conditions"
               element={<TermsConditionsPage />}
             />
+            {/* <Route
+              path="/paste"
+              element={<Paste />}
+            /> */}
           </Routes>
         </div>
       </Router>

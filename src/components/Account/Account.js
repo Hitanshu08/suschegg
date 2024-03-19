@@ -5,7 +5,7 @@ export const Account = ({ user }) => {
   const accountDetails = [
     { title: "User Name: ", value: user.userName },
     { title: "Email: ", value: user.email },
-    { title: "User Icon: ", value: <img src={user.icon}></img> },
+    { title: "User Icon: ", value: user.icon },
   ];
 
   const topupHistory = [
@@ -62,14 +62,21 @@ export const Account = ({ user }) => {
       <div className="account-details-container">
         <div className="account-details-heading">Account Details</div>
         <div className="account-details">
-          {accountDetails.map((detail, index) => (
-            <div
-              className="account-detail"
-              key={index}>
-              <p className="account-detail-title">{detail.title}</p>
-              <div className="account-detail-value">{detail.value}</div>
-            </div>
-          ))}
+          <div className="user-img-wrapper">
+            <img
+              className="user-img"
+              src={accountDetails[accountDetails.length - 1]?.value}></img>
+          </div>
+          <div>
+            {accountDetails.slice(0, -1).map((detail, index) => (
+              <div
+                className="account-detail"
+                key={index}>
+                <p className="account-detail-title">{detail.title}</p>
+                <div className="account-detail-value">{detail.value}</div>
+              </div>
+            ))}
+          </div>
         </div>
         <div>
           <button className="reset-password-button button">

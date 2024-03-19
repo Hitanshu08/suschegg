@@ -90,8 +90,11 @@
   width: 20px;
 }
 
+.down-arrow {
+  transition: all 1s ease;
+}
 .down-arrow.reverse {
-  transform: rotate(180deg) translateY(-2px);
+  transform: scaleY(-1) translateY(-2px);
 }
 .user-logo {
   width: 24px;
@@ -130,7 +133,7 @@ img.user-logo {
   margin-bottom: 8px;
   text-align: left;
 }
-.user-chat-value{
+.user-chat-value {
   display: flex;
   align-items: center;
   height: 100%;
@@ -160,22 +163,22 @@ img.user-logo {
   margin-left: 16px;
 }
 
-.generating::after{
+.generating::after {
   content: " ";
   animation: generating 1s linear infinite;
 }
 
 @keyframes generating {
-  0%{
+  0% {
     content: " ";
   }
-  33%{
+  33% {
     content: " .";
   }
-  66%{
+  66% {
     content: " ..";
   }
-  100%{
+  100% {
     content: " ...";
   }
 }

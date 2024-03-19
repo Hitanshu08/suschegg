@@ -1,9 +1,9 @@
 .subscription-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(256px, 1fr));
   gap: 12px;
   box-sizing: border-box;
-  padding: 16px 0;
+  padding: 16px;
 }
 .subscription-item-container {
   width: 100%;
@@ -19,34 +19,19 @@
   border-radius: 12px;
   text-align: left;
 }
-.subscription-item-title{
-  margin-bottom: 0.5rem;
+.subscription-item-title {
+  margin-bottom: 8px;
 }
-.subscription-item-value{
-  margin-bottom: 1rem;
-  font-size: 1.75rem;
+.subscription-item-value {
+  margin-bottom: 16px;
+  font-size: 28px;
   font-weight: 500;
   color: #ffffff70;
 }
-.currancy{
-  font-size: 1.25rem;
+.currancy {
+  font-size: 20px;
   font-weight: 400;
 }
-.buy-button{
+.buy-button {
   margin-top: auto;
-}
-@media (max-width: 1024px) {
-  .subscription-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-@media (max-width: 768px) {
-  .subscription-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-@media (max-width: 576px) {
-  .subscription-grid {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-  }
 }
